@@ -1,7 +1,7 @@
 targetScope = 'resourceGroup'
 
 @description('Prefix to use when creating the resources in this deployment.')
-param applicationNamePrefix string = 'ghostapp'
+param applicationNamePrefix string = 'aghost'
 
 @description('App Service Plan pricing tier')
 param appServicePlanSku string = 'B1'
