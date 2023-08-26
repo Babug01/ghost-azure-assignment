@@ -1263,7 +1263,7 @@
               "location": "[parameters('location')]",
               "sku": {
                 "name": "[parameters('mySQLServerSku')]",
-                "tier": "Basic"
+                "tier": "Standard_B1s"
               },
               "properties": {
                 "createMode": "Default",
