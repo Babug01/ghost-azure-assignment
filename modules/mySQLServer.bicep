@@ -101,29 +101,5 @@ resource databases 'Microsoft.DBforMySQL/flexibleServers/databases@2021-05-01' =
   }
 }
 
-resource mySQLServerDiagnostics 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
-  scope: mySQLServer
-  name: 'MySQLServerDiagnostics'
-  properties: {
-    workspaceId: logAnalyticsWorkspaceId
-    metrics: [
-      {
-        category: 'AllMetrics'
-        enabled: true
-      }
-    ]
-    logs: [
-      {
-        category: 'MySqlSlowLogs'
-        enabled: true
-      }
-      {
-        category: 'MySqlAuditLogs'
-        enabled: true
-      }
-    ]
-  }
-}
-
 output name string = mySQLServerName
 output fullyQualifiedDomainName string = fullyQualifiedDomainName

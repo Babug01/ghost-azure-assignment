@@ -1307,34 +1307,6 @@
                 "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('mySQLServerName'))]"
               ]
             },
-            {
-              "type": "Microsoft.Insights/diagnosticSettings",
-              "apiVersion": "2021-05-01-preview",
-              "scope": "[format('Microsoft.DBforMySQL/flexibleServers{0}', parameters('mySQLServerName'))]",
-              "name": "MySQLServerDiagnostics",
-              "properties": {
-                "workspaceId": "[parameters('logAnalyticsWorkspaceId')]",
-                "metrics": [
-                  {
-                    "category": "AllMetrics",
-                    "enabled": true
-                  }
-                ],
-                "logs": [
-                  {
-                    "category": "MySqlSlowLogs",
-                    "enabled": true
-                  },
-                  {
-                    "category": "MySqlAuditLogs",
-                    "enabled": true
-                  }
-                ]
-              },
-              "dependsOn": [
-                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('mySQLServerName'))]"
-              ]
-            }
           ],
           "outputs": {
             "name": {
