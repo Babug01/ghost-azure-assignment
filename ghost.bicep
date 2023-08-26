@@ -10,7 +10,7 @@ param appServicePlanSku string = 'B1'
 param logAnalyticsWorkspaceSku string = 'PerGB2018'
 
 @description('Log Analytics workspace data retention in days')
-param retentionInDays string = '7'
+param retentionInDays int = 7
 
 @description('Storage account pricing tier')
 param storageAccountSku string = 'Standard_LRS'

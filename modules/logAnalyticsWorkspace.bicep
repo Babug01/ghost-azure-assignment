@@ -19,12 +19,12 @@ param logAnalyticsWorkspaceName string
 param logAnalyticsWorkspaceSku string
 
 @description('Log Analytics workspace data retention in days')
-param retentionInDays string
+param retentionInDays int
 
 @description('Location to deploy the resources')
 param location string = resourceGroup().location
 
-resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2021-06-01' = {
+resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
   name: logAnalyticsWorkspaceName
   location: location
   properties: {
@@ -33,7 +33,7 @@ resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2021-06
     }
     retentionInDays: retentionInDays
     workspaceCapping: {
-      dailyQuotaGb: '1'
+      dailyQuotaGb: 1
     }
   }
 }

@@ -27,11 +27,11 @@ param containerMountPath string
 @description('Container registry to pull Ghost docker image')
 param containerRegistryUrl string
 
-resource existingWebApp 'Microsoft.Web/sites@2020-09-01' existing = {
+resource existingWebApp 'Microsoft.Web/sites@2022-09-01' existing = {
   name: webAppName
 }
 
-resource webAppSettings 'Microsoft.Web/sites/config@2021-01-15' = {
+resource webAppSettings 'Microsoft.Web/sites/config@2022-09-01' = {
   parent: existingWebApp
   name: 'appsettings'
   properties: {

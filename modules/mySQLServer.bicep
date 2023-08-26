@@ -56,7 +56,7 @@ param geoRedundantBackup string = 'Disabled'
 @description('Log Analytics workspace id to use for diagnostics settings')
 param logAnalyticsWorkspaceId string
 
-resource mySQLServer 'Microsoft.DBforMySQL/flexibleServers@2021-05-01' = {
+resource mySQLServer 'Microsoft.DBforMySQL/flexibleServers@2022-01-01' = {
   name: mySQLServerName
   location: location
   sku: {
