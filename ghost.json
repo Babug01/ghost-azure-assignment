@@ -1298,7 +1298,7 @@
             {
               "type": "Microsoft.DBforMySQL/flexibleServers/databases",
               "apiVersion": "2022-01-01",
-              "name": "[parameters('databaseName')]",
+              "name": "[format('{0}/{1}', parameters('mySQLServerName'), parameters('databaseName'))]",
               "properties": {
                 "charset": "utf8mb3",
                 "collation": "utf8mb3_general_ci"
