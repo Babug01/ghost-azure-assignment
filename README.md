@@ -6,11 +6,11 @@ A one-click [Ghost](https://ghost.org/) deployment on [Azure Web App for Contain
 
 ## Deploy
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fandrewmatveychuk%2Fazure.ghost-web-app-for-containers%2Fmaster%2Fghost.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FBabug01%2Fghost-sytac-assignment%2Fmain%2Fghost.json)
 
 ## Getting Started
 
-This is an Azure Web app deployed as a container . It uses [the custom Ghost Docker image with Azure Application Insights support](https://github.com/andrewmatveychuk/docker-ghost-ai) and [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql/) to store the application data.
+This is an Azure Web app deployed as a container . It uses [the custom Ghost Docker image with Azure Application Insights support](https://github.com/Babug01/ghost-sytac-assignment/tree/main/ghostapp) and [Azure Database for MySQL Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview) to store the application data.
 
 The Azure Web app configuration is provided as a ready-to-use ARM template that deploys and configures all requires Azure resources:
 
