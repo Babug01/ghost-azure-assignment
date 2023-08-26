@@ -262,7 +262,7 @@
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2023-01-01",
+              "apiVersion": "2022-09-01",
               "name": "[parameters('storageAccountName')]",
               "location": "[parameters('location')]",
               "kind": "StorageV2",
@@ -294,7 +294,7 @@
             },
             {
               "type": "Microsoft.Storage/storageAccounts/fileServices",
-              "apiVersion": "2023-01-01",
+              "apiVersion": "2022-09-01",
               "name": "[format('{0}/{1}', parameters('storageAccountName'), 'default')]",
               "dependsOn": [
                 "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
@@ -334,7 +334,7 @@
             },
             {
               "type": "Microsoft.Storage/storageAccounts/fileServices/shares",
-              "apiVersion": "2023-01-01",
+              "apiVersion": "2022-09-01",
               "name": "[format('{0}/{1}/{2}', parameters('storageAccountName'), 'default', parameters('fileShareFolderName'))]",
               "dependsOn": [
                 "[resourceId('Microsoft.Storage/storageAccounts/fileServices', parameters('storageAccountName'), 'default')]",
@@ -452,7 +452,7 @@
           "resources": [
             {
               "type": "Microsoft.KeyVault/vaults",
-              "apiVersion": "2023-02-01",
+              "apiVersion": "2021-10-01",
               "name": "[parameters('keyVaultName')]",
               "location": "[parameters('location')]",
               "properties": {
@@ -476,7 +476,7 @@
             },
             {
               "type": "Microsoft.KeyVault/vaults/secrets",
-              "apiVersion": "2023-02-01",
+              "apiVersion": "2021-10-01",
               "name": "[format('{0}/{1}', parameters('keyVaultName'), parameters('keyVaultSecretName'))]",
               "properties": {
                 "value": "[parameters('keyVaultSecretValue')]"
@@ -641,7 +641,7 @@
           "resources": [
             {
               "type": "Microsoft.Web/sites",
-              "apiVersion": "2022-09-01",
+              "apiVersion": "2022-03-01",
               "name": "[parameters('webAppName')]",
               "location": "[parameters('location')]",
               "kind": "app,linux,container",
@@ -677,7 +677,7 @@
             {
               "condition": "[equals(parameters('deploymentConfiguration'), 'Web app with Azure Front Door')]",
               "type": "Microsoft.Web/sites/config",
-              "apiVersion": "2022-09-01",
+              "apiVersion": "2022-03-01",
               "name": "[format('{0}/{1}', parameters('webAppName'), 'web')]",
               "properties": {
                 "ipSecurityRestrictions": [
@@ -870,7 +870,7 @@
           "resources": [
             {
               "type": "Microsoft.Web/sites/config",
-              "apiVersion": "2022-09-01",
+              "apiVersion": "2022-03-01",
               "name": "[format('{0}/{1}', parameters('webAppName'), 'appsettings')]",
               "properties": {
                 "APPINSIGHTS_INSTRUMENTATIONKEY": "[parameters('applicationInsightsInstrumentationKey')]",
@@ -1267,7 +1267,7 @@
           "resources": [
             {
               "type": "Microsoft.DBforMySQL/flexibleServers",
-              "apiVersion": "2022-01-01",
+              "apiVersion": "2021-05-01",
               "name": "[parameters('mySQLServerName')]",
               "location": "[parameters('location')]",
               "sku": {
@@ -1285,7 +1285,7 @@
             },
             {
               "type": "Microsoft.DBforMySQL/flexibleServers/firewallRules",
-              "apiVersion": "2022-01-01",
+              "apiVersion": "2021-05-01",
               "name": "[format('{0}/{1}', parameters('mySQLServerName'), 'AllowAzureIPs')]",
               "properties": {
                 "startIpAddress": "0.0.0.0",
@@ -1297,7 +1297,7 @@
             },
             {
               "type": "Microsoft.DBforMySQL/flexibleServers/databases",
-              "apiVersion": "2022-01-01",
+              "apiVersion": "2021-05-01",
               "name": "[format('{0}/{1}', parameters('mySQLServerName'), parameters('databaseName'))]",
               "properties": {
                 "charset": "utf8mb3",
@@ -1448,14 +1448,14 @@
           "resources": [
             {
               "type": "Microsoft.Cdn/profiles",
-              "apiVersion": "2023-05-01",
+              "apiVersion": "2021-06-01",
               "name": "[parameters('cdnProfileName')]",
               "location": "[parameters('location')]",
               "sku": "[parameters('cdnProfileSku')]"
             },
             {
               "type": "Microsoft.Cdn/profiles/endpoints",
-              "apiVersion": "2023-05-01",
+              "apiVersion": "2021-06-01",
               "name": "[format('{0}/{1}', parameters('cdnProfileName'), parameters('cdnEndpointName'))]",
               "location": "[parameters('location')]",
               "properties": {

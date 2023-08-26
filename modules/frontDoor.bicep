@@ -21,7 +21,7 @@ var loadBalancing1Name = '${frontDoorName}-loadBalancing1'
 var routingRule1Name = '${frontDoorName}-routingRule1'
 var frontendEndpoint1hostName = '${frontDoorName}.azurefd.net'
 
-resource existingWebApp 'Microsoft.Web/sites@2022-09-01' existing = {
+resource existingWebApp 'Microsoft.Web/sites@2022-03-01' existing = {
   name: webAppName
 }
 

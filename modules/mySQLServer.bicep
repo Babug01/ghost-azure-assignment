@@ -56,7 +56,7 @@ param geoRedundantBackup string = 'Disabled'
 @description('Log Analytics workspace id to use for diagnostics settings')
 param logAnalyticsWorkspaceId string
 
-resource mySQLServer 'Microsoft.DBforMySQL/flexibleServers@2022-01-01' = {
+resource mySQLServer 'Microsoft.DBforMySQL/flexibleServers@2021-05-01' = {
   name: mySQLServerName
   location: location
   sku: {
@@ -83,7 +83,7 @@ resource mySQLServer 'Microsoft.DBforMySQL/flexibleServers@2022-01-01' = {
   }
 }
 
-resource firewallRules 'Microsoft.DBforMySQL/flexibleServers/firewallRules@2022-01-01' = {
+resource firewallRules 'Microsoft.DBforMySQL/flexibleServers/firewallRules@2021-05-01' = {
   parent: mySQLServer
   name: 'AllowAzureIPs'
   properties: {
@@ -92,7 +92,7 @@ resource firewallRules 'Microsoft.DBforMySQL/flexibleServers/firewallRules@2022-
   }
 }
 
-resource databases 'Microsoft.DBforMySQL/flexibleServers/databases@2022-01-01' = {
+resource databases 'Microsoft.DBforMySQL/flexibleServers/databases@2021-05-01' = {
   name: databaseName
   parent: mySQLServer
   properties: {

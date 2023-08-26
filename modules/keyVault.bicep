@@ -23,7 +23,7 @@ param logAnalyticsWorkspaceId string
 @description('Service principal ID to provide access to the vault secrets')
 param servicePrincipalId string
 
-resource keyVault 'Microsoft.KeyVault/vaults@2023-02-01' = {
+resource keyVault 'Microsoft.KeyVault/vaults@2021-10-01' = {
   name: keyVaultName
   location: location
   properties: {
@@ -47,7 +47,7 @@ resource keyVault 'Microsoft.KeyVault/vaults@2023-02-01' = {
   }
 }
 
-resource keyVaultSecret 'Microsoft.KeyVault/vaults/secrets@2023-02-01' = {
+resource keyVaultSecret 'Microsoft.KeyVault/vaults/secrets@2021-10-01' = {
   parent: keyVault
   name: keyVaultSecretName
   properties: {
