@@ -1306,7 +1306,7 @@
               "dependsOn": [
                 "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('mySQLServerName'))]"
               ]
-            },
+            }
           ],
           "outputs": {
             "name": {
