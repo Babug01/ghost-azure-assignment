@@ -11,7 +11,7 @@
   "parameters": {
     "applicationNamePrefix": {
       "type": "string",
-      "defaultValue": "ghost",
+      "defaultValue": "ghostapp",
       "metadata": {
         "description": "Prefix to use when creating the resources in this deployment."
       }
