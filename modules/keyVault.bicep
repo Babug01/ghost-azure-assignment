@@ -35,6 +35,7 @@ resource keyVault 'Microsoft.KeyVault/vaults@2021-04-01-preview' = {
         permissions: {
           secrets: [
             'get'
+            'list'
           ]
         }
       }
