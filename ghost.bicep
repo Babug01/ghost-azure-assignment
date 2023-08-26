@@ -7,7 +7,10 @@ param applicationNamePrefix string = 'ghost'
 param appServicePlanSku string = 'B1'
 
 @description('Log Analytics workspace pricing tier')
-param logAnalyticsWorkspaceSku string = 'Free'
+param logAnalyticsWorkspaceSku string = 'PerGB2018'
+
+@description('Log Analytics workspace data retention in days')
+param retentionInDays string = '7'
 
 @description('Storage account pricing tier')
 param storageAccountSku string = 'Standard_LRS'
@@ -65,6 +68,7 @@ module logAnalyticsWorkspace './modules/logAnalyticsWorkspace.bicep' = {
   params: {
     logAnalyticsWorkspaceName: logAnalyticsWorkspaceName
     logAnalyticsWorkspaceSku: logAnalyticsWorkspaceSku
+    retentionInDays: retentionInDays
     location: location
   }
 }

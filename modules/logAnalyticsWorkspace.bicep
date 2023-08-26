@@ -8,7 +8,8 @@ param logAnalyticsWorkspaceName string
 @description('Log Analytics workspace pricing tier')
 @allowed([
   'Free'
-  'LACluster'
+  'Unlimited'
+  'CapacityReservation'
   'PerGB2018'
   'PerNode'
   'Premium'
@@ -16,6 +17,9 @@ param logAnalyticsWorkspaceName string
   'Standard'
 ])
 param logAnalyticsWorkspaceSku string
+
+@description('Log Analytics workspace data retention in days')
+param retentionInDays string
 
 @description('Location to deploy the resources')
 param location string = resourceGroup().location
@@ -26,6 +30,10 @@ resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2021-06
   properties: {
     sku: {
       name: logAnalyticsWorkspaceSku
+    }
+    retentionInDays: retentionInDays
+    workspaceCapping: {
+      dailyQuotaGb: '1'
     }
   }
 }

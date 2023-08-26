@@ -25,11 +25,18 @@
     },
     "logAnalyticsWorkspaceSku": {
       "type": "string",
-      "defaultValue": "Free",
+      "defaultValue": "PerGB2018",
       "metadata": {
         "description": "Log Analytics workspace pricing tier"
       }
     },
+    "retentionInDays": {
+      "type": "string",
+      "defaultValue": "7",
+      "metadata": {
+        "description": "Log Analytics workspace data retention in days"
+      }
+    },    
     "storageAccountSku": {
       "type": "string",
       "defaultValue": "Standard_LRS",
@@ -119,6 +126,9 @@
           "logAnalyticsWorkspaceSku": {
             "value": "[parameters('logAnalyticsWorkspaceSku')]"
           },
+          "retentionInDays": {
+            "value": "[parameters('retentionInDays')]"
+          },          
           "location": {
             "value": "[parameters('location')]"
           }
