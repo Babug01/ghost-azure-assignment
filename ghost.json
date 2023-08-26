@@ -89,7 +89,7 @@
     "keyVaultName": "[format('{0}-kv-{1}', parameters('applicationNamePrefix'), uniqueString(resourceGroup().id))]",
     "storageAccountName": "[format('{0}stor{1}', parameters('applicationNamePrefix'), uniqueString(resourceGroup().id))]",
     "mySQLServerName": "[format('{0}-mysql-{1}', parameters('applicationNamePrefix'), uniqueString(resourceGroup().id))]",
-    "databaseLogin": "ghost",
+    "databaseLogin": "mysqlfsadmin",
     "databaseName": "ghostdb",
     "ghostContentFileShareName": "contentfiles",
     "ghostContentFilesMountPath": "/var/lib/ghost/content_files",
