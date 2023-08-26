@@ -52,7 +52,7 @@
       }
     },
     "databasePassword": {
-      "type": "secureObject",
+      "type": "securestring",
       "metadata": {
         "description": "MySQL server password"
       }
