@@ -50,14 +50,7 @@
       "metadata": {
         "description": "MySQL server SKU"
       }
-    },
-    "databasename": {
-      "type": "string",
-      "defaultValue": "ghostdb",
-      "metadata": {
-        "description": "MySQL DB Name"
-      }
-    },    
+    }, 
     "databasePassword": {
       "type": "securestring",
       "metadata": {
@@ -97,7 +90,7 @@
     "storageAccountName": "[format('{0}stor{1}', parameters('applicationNamePrefix'), uniqueString(resourceGroup().id))]",
     "mySQLServerName": "[format('{0}-mysql-{1}', parameters('applicationNamePrefix'), uniqueString(resourceGroup().id))]",
     "databaseLogin": "ghost",
-    "databaseName": "ghost",
+    "databaseName": "ghostdb",
     "ghostContentFileShareName": "contentfiles",
     "ghostContentFilesMountPath": "/var/lib/ghost/content_files",
     "siteUrl": "[if(equals(parameters('deploymentConfiguration'), 'Web app with Azure Front Door'), format('https://{0}.azurefd.net', variables('frontDoorName')), format('https://{0}.azureedge.net', variables('cdnEndpointName')))]",
