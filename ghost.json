@@ -1283,13 +1283,13 @@
                 "endIpAddress": "0.0.0.0"
               },
               "dependsOn": [
-                "[resourceId('Microsoft.DBforMySQL/servers', parameters('mySQLServerName'))]"
+                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('mySQLServerName'))]"
               ]
             },
             {
               "type": "Microsoft.Insights/diagnosticSettings",
               "apiVersion": "2021-05-01-preview",
-              "scope": "[format('Microsoft.DBforMySQL/servers/{0}', parameters('mySQLServerName'))]",
+              "scope": "[format('Microsoft.DBforMySQL/flexibleServers{0}', parameters('mySQLServerName'))]",
               "name": "MySQLServerDiagnostics",
               "properties": {
                 "workspaceId": "[parameters('logAnalyticsWorkspaceId')]",
@@ -1311,7 +1311,7 @@
                 ]
               },
               "dependsOn": [
-                "[resourceId('Microsoft.DBforMySQL/servers', parameters('mySQLServerName'))]"
+                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('mySQLServerName'))]"
               ]
             }
           ],
@@ -1322,7 +1322,7 @@
             },
             "fullyQualifiedDomainName": {
               "type": "string",
-              "value": "[reference(resourceId('Microsoft.DBforMySQL/servers', parameters('mySQLServerName'))).fullyQualifiedDomainName]"
+              "value": "[reference(resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('mySQLServerName'))).fullyQualifiedDomainName]"
             }
           }
         }
