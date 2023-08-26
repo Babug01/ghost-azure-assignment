@@ -4,7 +4,7 @@ targetScope = 'resourceGroup'
 @maxLength(63)
 param mySQLServerName string
 
-@description('Fully Qualified DNS Private Zone')
+@description('Fully Qualified DNS Name')
 param fullyQualifiedDomainName string = '${mySQLServerName}.mysql.database.azure.com'
 
 @description('Azure database for MySQL pricing tier')

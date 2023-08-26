@@ -46,7 +46,7 @@
     },
     "mySQLServerSku": {
       "type": "string",
-      "defaultValue": "B_Gen5_1",
+      "defaultValue": "Standard_B1s",
       "metadata": {
         "description": "MySQL server SKU"
       }
@@ -1217,8 +1217,12 @@
             "mySQLServerSku": {
               "type": "string",
               "allowedValues": [
-                "B_Gen5_1",
-                "B_Gen5_2"
+                "Standard_B1s",
+                "Standard_B1ms",
+                "Standard_B2s",
+                "Standard_B2ms",
+                "Standard_B4ms",
+                "Standard_B8ms"
               ]
             },
             "administratorLogin": {
@@ -1253,8 +1257,8 @@
           "functions": [],
           "resources": [
             {
-              "type": "Microsoft.DBforMySQL/servers",
-              "apiVersion": "2017-12-01",
+              "type": "Microsoft.DBforMySQL/flexibleServers",
+              "apiVersion": "2021-05-01",
               "name": "[parameters('mySQLServerName')]",
               "location": "[parameters('location')]",
               "sku": {
@@ -1263,7 +1267,7 @@
               },
               "properties": {
                 "createMode": "Default",
-                "version": "5.7",
+                "version": "8.0",
                 "administratorLogin": "[parameters('administratorLogin')]",
                 "administratorLoginPassword": "[parameters('administratorPassword')]",
                 "sslEnforcement": "Enabled",
@@ -1271,8 +1275,8 @@
               }
             },
             {
-              "type": "Microsoft.DBforMySQL/servers/firewallRules",
-              "apiVersion": "2017-12-01",
+              "type": "Microsoft.DBforMySQL/flexibleServers/firewallRules",
+              "apiVersion": "2021-12-01-preview",
               "name": "[format('{0}/{1}', parameters('mySQLServerName'), 'AllowAzureIPs')]",
               "properties": {
                 "startIpAddress": "0.0.0.0",
