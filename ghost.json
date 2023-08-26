@@ -51,6 +51,13 @@
         "description": "MySQL server SKU"
       }
     },
+    "databasename": {
+      "type": "string",
+      "defaultValue": "ghostdb",
+      "metadata": {
+        "description": "MySQL DB Name"
+      }
+    },    
     "databasePassword": {
       "type": "securestring",
       "metadata": {
@@ -1196,7 +1203,10 @@
           },
           "mySQLServerSku": {
             "value": "[parameters('mySQLServerSku')]"
-          }
+          },
+          "databasename": {
+            "value": "[parameters('databasename')]"
+          }          
         },
         "template": {
           "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
