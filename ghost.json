@@ -791,7 +791,7 @@
             "value": "[reference(resourceId('Microsoft.Resources/deployments', 'mySQLServerDeploy'), '2019-10-01').outputs.fullyQualifiedDomainName.value]"
           },
           "databaseLogin": {
-            "value": "[format('{0}@{1}', variables('databaseLogin'), reference(resourceId('Microsoft.Resources/deployments', 'mySQLServerDeploy'), '2019-10-01').outputs.name.value)]"
+            "value": "[variables('databaseLogin')]"
           },
           "databasePasswordSecretUri": {
             "value": "[reference(resourceId('Microsoft.Resources/deployments', 'keyVaultDeploy'), '2019-10-01').outputs.databasePasswordSecretUri.value]"
