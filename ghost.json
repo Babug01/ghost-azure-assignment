@@ -1196,6 +1196,9 @@
           },
           "mySQLServerSku": {
             "value": "[parameters('mySQLServerSku')]"
+          },
+          "databaseName": {
+            "value": "[variables('databaseName')]"
           }
         },
         "template": {
@@ -1251,6 +1254,12 @@
               "type": "string",
               "metadata": {
                 "description": "Log Analytics workspace id to use for diagnostics settings"
+              }
+            },
+            "databaseName": {
+              "type": "string",
+              "metadata": {
+                "description": "MySQL FS Database Name"
               }
             }
           },
