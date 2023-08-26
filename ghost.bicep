@@ -26,7 +26,7 @@ param databasePassword string
 param ghostContainerName string = 'babug011/ghostapp:latest'
 
 @description('Container registry where the image is hosted')
-param containerRegistryUrl string = 'https://index.docker.io/v1'
+param containerRegistryUrl string = 'https://index.docker.io/v2'
 
 @allowed([
   'Web app with Azure CDN'
