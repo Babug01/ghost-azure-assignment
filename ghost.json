@@ -50,7 +50,7 @@
       "metadata": {
         "description": "MySQL server SKU"
       }
-    }, 
+    },
     "databasePassword": {
       "type": "securestring",
       "metadata": {
@@ -118,7 +118,7 @@
           },
           "logAnalyticsWorkspaceSku": {
             "value": "[parameters('logAnalyticsWorkspaceSku')]"
-          },         
+          },
           "location": {
             "value": "[parameters('location')]"
           }
@@ -1196,10 +1196,7 @@
           },
           "mySQLServerSku": {
             "value": "[parameters('mySQLServerSku')]"
-          },
-          "databasename": {
-            "value": "[parameters('databasename')]"
-          }          
+          }
         },
         "template": {
           "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -1300,7 +1297,7 @@
               "dependsOn": [
                 "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('mySQLServerName'))]"
               ]
-            },            
+            },
             {
               "type": "Microsoft.Insights/diagnosticSettings",
               "apiVersion": "2021-05-01-preview",
