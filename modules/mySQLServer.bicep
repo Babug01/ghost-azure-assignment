@@ -83,7 +83,7 @@ resource mySQLServer 'Microsoft.DBforMySQL/flexibleServers@2021-05-01' = {
   }
 }
 
-resource firewallRules 'Microsoft.DBforMySQL/flexibleServers/firewallRules@2021-12-01-preview' = {
+resource firewallRules 'Microsoft.DBforMySQL/flexibleServers/firewallRules@2022-01-01' = {
   parent: mySQLServer
   name: 'AllowAzureIPs'
   properties: {

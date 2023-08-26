@@ -1276,7 +1276,7 @@
             },
             {
               "type": "Microsoft.DBforMySQL/flexibleServers/firewallRules",
-              "apiVersion": "2021-12-01-preview",
+              "apiVersion": "2022-01-01",
               "name": "[format('{0}/{1}', parameters('mySQLServerName'), 'AllowAzureIPs')]",
               "properties": {
                 "startIpAddress": "0.0.0.0",
