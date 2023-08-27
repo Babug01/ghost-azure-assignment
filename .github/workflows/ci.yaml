@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - "./ghostapp/*"
-      - "./.github/**"
+      - "ghostapp/**"
+      - ".github/**"
 
 jobs:
   build:
