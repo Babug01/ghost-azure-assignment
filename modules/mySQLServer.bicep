@@ -51,7 +51,18 @@ param location string = resourceGroup().location
 param backupRetentionDays int = 7
 
 @description('Geo-Redundant Backup setting')
-param geoRedundantBackup string = 'Disabled'
+@allowed([
+  'Enabled'
+  'Disabled'
+])
+param mysqlgeoRedundantBackup string = 'Disabled'
+
+@description('High Availability mode')
+@allowed([
+  'Enabled'
+  'Disabled'
+])
+param mysqlHighAvailabilityMode string = 'Disabled'
 
 resource mySQLServer 'Microsoft.DBforMySQL/flexibleServers@2021-05-01' = {
   name: mySQLServerName
@@ -72,10 +83,10 @@ resource mySQLServer 'Microsoft.DBforMySQL/flexibleServers@2021-05-01' = {
     version: mysqlVersion
     backup: {
       backupRetentionDays: backupRetentionDays
-      geoRedundantBackup: geoRedundantBackup
+      geoRedundantBackup: mysqlgeoRedundantBackup
     }
     highAvailability: {
-      mode: 'Disabled'
+      mode: mysqlHighAvailabilityMode
     }
   }
 }

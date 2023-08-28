@@ -32,6 +32,28 @@ param location string = resourceGroup().location
 @description('MySQL server SKU')
 param mySQLServerSku string = 'Standard_B1s'
 
+@description('Azure database for MySQL pricing tier')
+@allowed([
+  'GeneralPurpose'
+  'MemoryOptimized'
+  'Burstable'
+])
+param mySQLServerSkuTier string = 'Burstable'
+
+@description('Geo-Redundant Backup setting')
+@allowed([
+  'Enabled'
+  'Disabled'
+])
+param mysqlgeoRedundantBackup string = 'Disabled'
+
+@description('High Availability mode')
+@allowed([
+  'Enabled'
+  'Disabled'
+])
+param mysqlHighAvailabilityMode string = 'Disabled'
+
 @description('MySQL server password')
 @secure()
 param databasePassword string
@@ -173,10 +195,12 @@ module mySQLServer 'modules/mySQLServer.bicep' = {
     administratorLogin: databaseLogin
     administratorPassword: databasePassword
     location: location
-    logAnalyticsWorkspaceId: logAnalyticsWorkspace.outputs.id
     mySQLServerName: mySQLServerName
     mySQLServerSku: mySQLServerSku
     databaseName: databaseName
+    mySQLServerSkuTier: mySQLServerSkuTier
+    mysqlgeoRedundantBackup: mysqlgeoRedundantBackup
+    mysqlHighAvailabilityMode: mysqlHighAvailabilityMode
   }
 }
 
