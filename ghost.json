@@ -889,13 +889,13 @@
                 "database__connection__user": "[parameters('databaseLogin')]",
                 "database__connection__password": "[format('@Microsoft.KeyVault(SecretUri={0})', parameters('databasePasswordSecretUri'))]",
                 "database__connection__database": "[parameters('databaseName')]",
-                "database__connection__ssl": "true",
+                "database__connection__ssl": "false",
                 "database__connection__ssl_minVersion": "TLSv1.2",
                 "mail__transport" : "SMTP",
                 "mail__options__service": "Mailgun",
                 "mail__options__host": "smtp.mailgun.org",
                 "mail__options__port": "587",
-                "mail__options__secureConnection": "true",
+                "mail__options__secureConnection": "false",
                 "mail__options__auth__user": "",
                 "mail__options__auth__password": ""
               }
@@ -1286,7 +1286,7 @@
                 "version": "8.0.21",
                 "administratorLogin": "[parameters('administratorLogin')]",
                 "administratorLoginPassword": "[parameters('administratorPassword')]",
-                "sslEnforcement": "Enabled",
+                "sslEnforcement": "Disabled",
                 "minimalTlsVersion": "TLS1_2"
               }
             },
