@@ -6,6 +6,17 @@ param applicationNamePrefix string = 'aghost'
 @description('App Service Plan pricing tier')
 param appServicePlanSku string = 'B1'
 
+@description('Autoscaling Setting options')
+param minimumCapacity int = 1
+param maximumCapacity int = 3
+param defaultCapacity int = 3
+param metricName string = 'CpuPercentage'
+param metricThresholdToScaleOut int = 60
+param metricThresholdToScaleIn int = 20
+param changePercentScaleOut int = 20
+param changePercentScaleIn int = 10
+param autoscaleEnabled bool = true
+
 @description('Log Analytics workspace pricing tier')
 param logAnalyticsWorkspaceSku string = 'PerGB2018'
 
@@ -134,6 +145,15 @@ module appServicePlan './modules/appServicePlan.bicep' = {
     appServicePlanName: appServicePlanName
     appServicePlanSku: appServicePlanSku
     location: location
+    minimumCapacity: minimumCapacity
+    maximumCapacity: maximumCapacity
+    defaultCapacity: defaultCapacity
+    metricName: metricName
+    metricThresholdToScaleOut: metricThresholdToScaleOut
+    metricThresholdToScaleIn: metricThresholdToScaleIn
+    changePercentScaleOut: changePercentScaleOut
+    changePercentScaleIn: changePercentScaleIn
+    autoscaleEnabled: autoscaleEnabled
     logAnalyticsWorkspaceId: logAnalyticsWorkspace.outputs.id
   }
 }

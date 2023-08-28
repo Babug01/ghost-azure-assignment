@@ -22,6 +22,17 @@ param appServicePlanSku string
 @description('Location to deploy the resources')
 param location string = resourceGroup().location
 
+@description('Autoscaling Setting options')
+param minimumCapacity int = 2
+param maximumCapacity int = 5
+param defaultCapacity int = 5
+param metricName string = 'CpuPercentage'
+param metricThresholdToScaleOut int = 60
+param metricThresholdToScaleIn int = 20
+param changePercentScaleOut int = 20
+param changePercentScaleIn int = 10
+param autoscaleEnabled bool = true
+
 @description('Log Analytics workspace id to use for diagnostics settings')
 param logAnalyticsWorkspaceId string
 
@@ -34,6 +45,66 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2022-09-01' = {
   }
   sku: {
     name: appServicePlanSku
+  }
+}
+
+resource autoscaleSettings 'Microsoft.Insights/autoscalesettings@2015-04-01' = {
+  name: toLower('${appServicePlanName}-setting')
+  dependsOn: [
+    appServicePlan
+  ]
+  location: location
+  properties: {
+    profiles: [
+      {
+        name: 'DefaultAutoscaleProfile'
+        capacity: {
+          minimum: minimumCapacity
+          maximum: maximumCapacity
+          default: defaultCapacity
+        }
+        rules: [
+          {
+            metricTrigger: {
+              metricName: metricName
+              metricResourceUri: resourceId('Microsoft.Web/serverFarms', appServicePlanName)
+              timeGrain: 'PT5M'
+              statistic: 'Average'
+              timeWindow: 'PT10M'
+              timeAggregation: 'Average'
+              operator: 'GreaterThan'
+              threshold: metricThresholdToScaleOut
+            }
+            scaleAction: {
+              direction: 'Increase'
+              type: 'PercentChangeCount'
+              value: changePercentScaleOut
+              cooldown: 'PT10M'
+            }
+          }
+          {
+            metricTrigger: {
+              metricName: metricName
+              metricResourceUri: resourceId('Microsoft.Web/serverFarms', appServicePlanName)
+              timeGrain: 'PT5M'
+              statistic: 'Average'
+              timeWindow: 'PT10M'
+              timeAggregation: 'Average'
+              operator: 'LessThan'
+              threshold: metricThresholdToScaleIn
+            }
+            scaleAction: {
+              direction: 'Decrease'
+              type: 'PercentChangeCount'
+              value: changePercentScaleIn
+              cooldown: 'PT10M'
+            }
+          }
+        ]
+      }
+    ]
+    enabled: autoscaleEnabled
+    targetResourceUri: resourceId('Microsoft.Web/serverFarms', appServicePlanName)
   }
 }
 
