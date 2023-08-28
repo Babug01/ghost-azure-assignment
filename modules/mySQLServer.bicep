@@ -62,7 +62,7 @@ param mysqlgeoRedundantBackup string = 'Disabled'
   'Enabled'
   'Disabled'
 ])
-param mysqlHighAvailabilityMode string = 'Disabled'
+param mysqlHighAvailabilityMode string = mySQLServerSkuTier == 'Burstable' ? 'Disabled' : 'Enabled'
 
 resource mySQLServer 'Microsoft.DBforMySQL/flexibleServers@2021-05-01' = {
   name: mySQLServerName

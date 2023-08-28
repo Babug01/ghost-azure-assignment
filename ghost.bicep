@@ -52,7 +52,7 @@ param mysqlgeoRedundantBackup string = 'Disabled'
   'Enabled'
   'Disabled'
 ])
-param mysqlHighAvailabilityMode string = 'Disabled'
+param mysqlHighAvailabilityMode string = mySQLServerSkuTier == 'Burstable' ? 'Disabled' : 'Enabled'
 
 @description('MySQL server password')
 @secure()
