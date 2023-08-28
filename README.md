@@ -70,8 +70,20 @@ _For resilience, the architecture includes_:
 
 The provided ARM template automates the deployment of the entire infrastructure. You can also consider using Azure Resource Manager templates in combination with Azure DevOps pipelines for a more advanced CI/CD setup.
 
+## Reference Documents
+
+[Ghost]: https://ghost.org/
+[Ghost Docker Image]: https://hub.docker.com/_/ghost
+[Azure Quick Start Templates]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts
+[Azure Bicep]: https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep
+[Azure Documentation]: https://learn.microsoft.com/en-us/docs/
+
 ## Contact
 
 If you have any questions, encounter issues, or need assistance, please contact at [sachinbabu12@gmail.com].
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ---
