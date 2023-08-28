@@ -72,12 +72,12 @@ The provided ARM template automates the deployment of the entire infrastructure.
 
 ## Reference Documents
 
-[Ghost Website](https://ghost.org/)
-[Ghost Documentation](https://ghost.org/docs/)
-[Ghost Docker Image](https://hub.docker.com/_/ghost)
-[Azure Quick Start Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)
-[Azure Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep)
-[Azure Documentation](https://learn.microsoft.com/en-us/docs/)
+- [Ghost Website](https://ghost.org/)
+- [Ghost Documentation](https://ghost.org/docs/)
+- [Ghost Docker Image](https://hub.docker.com/_/ghost)
+- [Azure Quick Start Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)
+- [Azure Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep)
+- [Azure Documentation](https://learn.microsoft.com/en-us/docs/)
 
 ## License
 
