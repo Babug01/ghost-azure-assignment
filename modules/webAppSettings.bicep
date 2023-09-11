@@ -52,7 +52,7 @@ resource webAppSettings 'Microsoft.Web/sites/config@2022-03-01' = {
     database__connection__user: databaseLogin
     database__connection__password: '@Microsoft.KeyVault(SecretUri=${databasePasswordSecretUri})'
     database__connection__database: databaseName
-    database__connection__ssl: 'true'
+    database__connection__ssl: 'false'
     database__connection__ssl_minVersion: 'TLSv1.2'
     mail__transport: 'SMTP'
     mail__options__service: 'Mailgun'

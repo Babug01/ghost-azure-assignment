@@ -48,7 +48,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2022-09-01' = {
   }
 }
 
-resource autoscaleSettings 'Microsoft.Insights/autoscalesettings@2014-04-01' = {
+resource autoscaleSettings 'Microsoft.Insights/autoscalesettings@2022-10-01' = {
   name: toLower('${appServicePlanName}-setting')
   dependsOn: [
     appServicePlan
