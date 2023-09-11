@@ -7,14 +7,14 @@ param applicationNamePrefix string = 'aghost'
 param appServicePlanSku string = 'B1'
 
 @description('Autoscaling Setting options')
-param minimumCapacity int = 1
-param maximumCapacity int = 3
-param defaultCapacity int = 3
+param minimumCapacity string = '1'
+param maximumCapacity string = '3'
+param defaultCapacity string = '3'
 param metricName string = 'CpuPercentage'
 param metricThresholdToScaleOut int = 60
 param metricThresholdToScaleIn int = 20
-param changePercentScaleOut int = 20
-param changePercentScaleIn int = 10
+param changePercentScaleOut string = '20'
+param changePercentScaleIn string = '10'
 param autoscaleEnabled bool = true
 
 @description('Log Analytics workspace pricing tier')

@@ -23,14 +23,14 @@ param appServicePlanSku string
 param location string = resourceGroup().location
 
 @description('Autoscaling Setting options')
-param minimumCapacity int = 2
-param maximumCapacity int = 5
-param defaultCapacity int = 5
+param minimumCapacity string = '2'
+param maximumCapacity string = '5'
+param defaultCapacity string = '5'
 param metricName string = 'CpuPercentage'
 param metricThresholdToScaleOut int = 60
 param metricThresholdToScaleIn int = 20
-param changePercentScaleOut int = 20
-param changePercentScaleIn int = 10
+param changePercentScaleOut string = '20'
+param changePercentScaleIn string = '10'
 param autoscaleEnabled bool = true
 
 @description('Log Analytics workspace id to use for diagnostics settings')
@@ -48,7 +48,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2022-09-01' = {
   }
 }
 
-resource autoscaleSettings 'Microsoft.Insights/autoscalesettings@2015-04-01' = {
+resource autoscaleSettings 'Microsoft.Insights/autoscalesettings@2014-04-01' = {
   name: toLower('${appServicePlanName}-setting')
   dependsOn: [
     appServicePlan

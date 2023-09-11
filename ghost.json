@@ -31,21 +31,21 @@
       }
     },
     "minimumCapacity": {
-      "type": "int",
+      "type": "string",
       "defaultValue": 1,
       "metadata": {
         "description": "The minimum capacity.  Autoscale engine will ensure the instance count is at least this value."
       }
     },
     "maximumCapacity": {
-      "type": "int",
+      "type": "string",
       "defaultValue": 5,
       "metadata": {
         "description": "The maximum capacity.  Autoscale engine will ensure the instance count is not greater than this value."
       }
     },
     "defaultCapacity": {
-      "type": "int",
+      "type": "string",
       "defaultValue": 5,
       "metadata": {
         "description": "The default capacity.  Autoscale engine will preventively set the instance count to be this value if it can not find any metric data."
@@ -1048,21 +1048,21 @@
               }
             },
             "minimumCapacity": {
-              "type": "int",
+              "type": "string",
               "defaultValue": 1,
               "metadata": {
                 "description": "The minimum capacity.  Autoscale engine will ensure the instance count is at least this value."
               }
             },
             "maximumCapacity": {
-              "type": "int",
+              "type": "string",
               "defaultValue": 5,
               "metadata": {
                 "description": "The maximum capacity.  Autoscale engine will ensure the instance count is not greater than this value."
               }
             },
             "defaultCapacity": {
-              "type": "int",
+              "type": "string",
               "defaultValue": 5,
               "metadata": {
                 "description": "The default capacity.  Autoscale engine will preventively set the instance count to be this value if it can not find any metric data."
@@ -1090,14 +1090,14 @@
               }
             },
             "changePercentScaleOut": {
-              "type": "int",
+              "type": "string",
               "defaultValue": 20,
               "metadata": {
                 "description": "The percentage to increase the instance count when autoscale engine is initiating scale out action."
               }
             },
             "changePercentScaleIn": {
-              "type": "int",
+              "type": "string",
               "defaultValue": 10,
               "metadata": {
                 "description": "The percentage to decrease the instance count when autoscale engine is initiating scale in action."
